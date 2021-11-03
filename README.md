@@ -1,4 +1,4 @@
-## Simple hand, pose, and face detection
+## Simple hand, pose, face, and face mesh detection
  - install dependencies
 ```shell
 pip install -r requirements.txt
