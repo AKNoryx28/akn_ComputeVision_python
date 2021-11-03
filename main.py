@@ -1,4 +1,4 @@
-from cv2 import FILLED, VideoCapture, imshow, waitKey, putText, FONT_HERSHEY_PLAIN, destroyAllWindows
+from cv2 import FILLED, VideoCapture, imshow, waitKey, putText, FONT_HERSHEY_PLAIN, destroyAllWindows, imwrite
 from time import time
 from keyboard import is_pressed
 # import modules.HandTracking as ht
@@ -31,9 +31,11 @@ while True:
 
         putText(img, "fps: " + str(int(_FPS)), (15, 70), FONT_HERSHEY_PLAIN, 2, (0, 255, 0), 2)
         imshow("HandTracking", img)
-        waitKey(1)
 
+    if waitKey(1) & 0xFF == 27:
+        break
     if is_pressed('q'):
+        imwrite("result.png", img)
         break
 
 cap.release()
