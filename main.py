@@ -46,7 +46,7 @@ while cap.isOpened():
 
     if waitKey(1) & 0xFF == 27:
         break
-    if is_pressed('q'):
+    elif is_pressed('q'):
         imwrite("result_face_mesh_connections.png", img)
         break
 
