@@ -3,7 +3,6 @@ import cv2
 import time
 import keyboard
 import os
-from PIL import Image
 
 ################################################################
 wCam, hCam = 850, 480
@@ -28,7 +27,7 @@ COLOR_NAVY = (0, 0, 128)
 ################################################################
 
 detector = HandTrack.HandDetector()
-folderImgFingers = "Fingers/"
+folderImgFingers = "Fingers"
 fingerList = os.listdir(folderImgFingers)
 overlayList = []
 tipIds = [4, 8, 12, 16, 20]
