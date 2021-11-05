@@ -34,7 +34,7 @@ tipIds = [4, 8, 12, 16, 20]
 totalFingers = 0
 
 for imPath in fingerList:
-    imgFinger = cv2.imread(f'{folderImgFingers}{imPath}')
+    imgFinger = cv2.imread(f'{folderImgFingers}/{imPath}')
     overlayList.append(imgFinger)
     # print(f'{folderImgFingers}/{imPath}')
 
