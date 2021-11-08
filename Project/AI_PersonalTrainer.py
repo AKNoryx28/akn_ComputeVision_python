@@ -44,7 +44,6 @@ def showFps(image, pos_w, pos_h, prevTime=0):
 
 while cam.isOpened:
     ret, img = cam.read()
-    # img = cv2.imread('src/Project/AiTrainer/pic.jpg')
     if ret:
         img = cv2.resize(img, (hCam, wCam))
         img = detector.findPose(img, False)
@@ -103,7 +102,6 @@ while cam.isOpened:
     if cv2.waitKey(1) & 0xFF == 27:
         break
     elif keyboard.is_pressed('q'):
-        # cv2.imwrite('src/Project/AiTrainer/pic.jpg',img)
         break
 
 
