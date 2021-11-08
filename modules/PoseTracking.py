@@ -1,6 +1,6 @@
 import cv2
 import mediapipe as mp
-# import time
+import math
 
 
 class PoseDetection:
@@ -42,6 +42,36 @@ class PoseDetection:
                 if draw:
                     cv2.circle(image, (cx, cy), 4, (255, 0, 0), cv2.FILLED)
             return lmList
+
+    def findAngle(self, image, p1, p2, p3, draw=True):
+        # Get the landmark
+        x1, y1 = self.lmList[p1][1:]
+        x2, y2 = self.lmList[p2][1:]
+        x3, y3 = self.lmList[p3][1:]
+
+        # Calculate angle
+        angle = math.degrees(math.atan2(y3-y2, x3-x2) -
+                             math.atan2(y1-y2, x1-x2))
+        if angle < 0:
+            angle += 360
+
+        # Drawing point locations
+        if draw:
+            # line
+            cv2.line(image, (x1, y1), (x2, y2), (255, 0, 255), 2)
+            cv2.line(image, (x3, y3), (x2, y2), (255, 0, 255), 2)
+            # circle
+            cv2.circle(image, (x1, y1), 7, (255, 255, 0), cv2.FILLED)
+            cv2.circle(image, (x1, y1), 13, (255, 255, 0), 1)
+            cv2.circle(image, (x2, y2), 7, (255, 255, 0), cv2.FILLED)
+            cv2.circle(image, (x2, y2), 13, (255, 255, 0), 1)
+            cv2.circle(image, (x3, y3), 7, (255, 255, 0), cv2.FILLED)
+            cv2.circle(image, (x3, y3), 13, (255, 255, 0), 1)
+            # Indicator
+            cv2.putText(image, str(int(angle)), (x2 - 40, y2 - 20),
+                        cv2.FONT_HERSHEY_PLAIN, 1, (255, 255, 255), 2)
+
+        return angle
 
 
 # def main():
