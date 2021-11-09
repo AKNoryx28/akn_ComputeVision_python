@@ -87,7 +87,6 @@ while cam.isOpened:
 
             # Else if selection Mode - One finger are up
             elif fingers[1] and fingers[2] == False:
-
                 if xp == 0 and yp == 0:
                     xp, yp = x1, y1
 
