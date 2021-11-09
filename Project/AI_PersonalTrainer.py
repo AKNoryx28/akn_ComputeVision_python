@@ -37,7 +37,7 @@ def showFps(image, pos_w, pos_h, prevTime=0):
     curTime = time.time()
     _fps = 1 / (curTime - prevTime)
     prevTime = curTime
-    cv2.putText(img, f"fps: {int(_fps)}", (pos_w, pos_h),
+    cv2.putText(image, f"fps: {int(_fps)}", (pos_w, pos_h),
                 cv2.FONT_HERSHEY_PLAIN, 2, COLOR_RED, 2)
     return prevTime
 
