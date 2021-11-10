@@ -119,7 +119,7 @@ while cam.isOpened:
         print("No image")
         break
 
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    if cv2.waitKey(1) & 0xFF == 27:
         break
     elif keyboard.is_pressed('q'):
         break
