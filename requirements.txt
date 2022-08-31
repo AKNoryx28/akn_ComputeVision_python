@@ -1,6 +1,6 @@
 
 keyboard == 0.13.5
 mediapipe == 0.8.9
-numpy == 1.21.3
+numpy == 1.22.0
 opencv-contrib-python == 4.5.4.58
 opencv-python == 4.5.4.58
